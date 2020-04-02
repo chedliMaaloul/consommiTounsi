@@ -1,0 +1,22 @@
+.card-img-top {
+  width: 100%;
+  border-top-left-radius: calc(.25rem - 1px);
+  border-top-right-radius: calc(.25rem - 1px);
+  height: 259px;
+}
+.card .btn-action {
+  margin-top: -1.44rem;
+  margin-bottom: -1.44rem;
+}
+.mdb-color.lighten-3 {
+  background-color: #929fba !important;
+}
+a.waves-effect, a.waves-light {
+  display: inline-block;
+}
+.form-control-solid {
+  background-color: #bdc3c7;
+  border-color: #5C6BC0;
+}
+
+

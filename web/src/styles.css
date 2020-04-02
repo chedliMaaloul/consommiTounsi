@@ -1,0 +1,12 @@
+/* You can add global styles to this file, and also import other style files */
+.ngx-pagination .current {
+  padding: 0.1875rem 0.625rem;
+  background: #34495f;
+  color: #fefefe;
+  cursor: default;
+}
+.ngx-pagination li {
+  display: inline-block;
+  border-radius: 50% !important;
+}
+

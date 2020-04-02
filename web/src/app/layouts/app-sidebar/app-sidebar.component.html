@@ -1,0 +1,37 @@
+<div id="sidebar-collapse">
+  <ul class="side-menu metismenu">
+    <li>
+      <a routerLink="/dashboard" routerLinkActive="active"><i class="sidebar-item-icon ti-view-grid"></i><span class="nav-label">Dashboard</span></a>
+
+    </li>
+
+    <li routerLinkActive="active">
+      <a href="href=&quot;javascript:;&quot;"><i class="sidebar-item-icon fa fa-product-hunt "></i><span class="nav-label">Produit</span><i class="fa fa-angle-left arrow"></i></a>
+      <ul class="nav-2-level collapse" routerLinkActive="in">
+        <li><a routerLink="/produit/add" routerLinkActive="active">Ajouter</a>
+        </li>
+        <li><a routerLink="/produit/show" routerLinkActive="active">Consulter</a>
+        </li>
+
+      </ul>
+    </li>
+
+    <li>
+      <a routerLink="/categorie/add" routerLinkActive="active"><i class="sidebar-item-icon fa fa-thumb-tack"></i><span class="nav-label">Categorie</span></a>
+
+    </li>
+
+
+
+  </ul>
+
+  <div class="sidebar-footer">
+
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    &nbsp; &nbsp; &nbsp; &nbsp;
+
+
+    <a href="javascript:;"(click)="logOut()" ><i class="ti-power-off"></i></a>
+
+  </div>
+</div>

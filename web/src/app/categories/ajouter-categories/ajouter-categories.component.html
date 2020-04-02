@@ -1,0 +1,52 @@
+<div class="page-content fade-in-up">
+  <div class="row">
+    <div class="col-lg-6">
+      <div class="ibox ibox-fullheight">
+        <div class="ibox-head">
+          <div class="ibox-title">Timeline List</div>
+        </div>
+        <div class="ibox-body">
+          <ul class="timeline">
+            <li class="timeline-item" *ngFor="let cat of list_categorie">
+              <span class="timeline-point"></span>{{cat.nom}}<small class="float-right text-muted ml-2 nowrap"><span class="k-icon k-i-edit" (click)="update_categorie(cat)"></span><span class="k-icon k-i-delete" (click)="delete_categorie(cat)"></span></small></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-6">
+      <div class="ibox">
+        <div class="ibox-head">
+          <div class="ibox-title" id="title">Ajouter Categorie</div>
+        </div>
+        <div class="ibox-body">
+          <form class="form-info" [formGroup]="f" (submit)="onSubmit()">
+            <div class="row">
+
+              <div class="col-sm-6 col-lg-6">
+
+                <div class="form-group">
+                  Nom:
+                  <div class="input-group-icon input-group-icon-right">
+            <span class="input-icon input-icon-right text-success" *ngIf="form_control.nom.touched && form_control.nom.valid ">
+              <i class="ti-check">
+
+              </i>
+            </span>
+                  <input class="form-control form-control-md form-control-rounded form-control-air" type="text" placeholder="categorie" formControlName="nom">
+                  </div>
+                  <div *ngIf="form_control.nom.touched && form_control.nom.invalid" class="invalid-feedback d-block">categorie invalid</div>
+                </div>
+              </div>
+
+              <div class="text-center mb-4">
+
+                <button class="btn btn-pink btn-rounded btn-air" id="btn" type="submit" style="position: relative;width:200px;top: 19%;">Ajouter</button>
+              </div>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

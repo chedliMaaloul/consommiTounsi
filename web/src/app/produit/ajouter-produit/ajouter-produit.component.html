@@ -1,0 +1,122 @@
+<div class="page-content fade-in-up">
+  <div class="row">
+    <div class="col-md-12">
+  <div class="ibox">
+    <div class="ibox-head">
+      <div class="ibox-title" id="title">Ajouter Produit</div>
+    </div>
+    <div class="ibox-body">
+      <form class="form-info" [formGroup]="f" (submit)="onSubmit()">
+        <div class="row">
+
+        <div class="col-sm-6 col-lg-4">
+
+        <div class="form-group">
+          Code:
+          <div class="input-group-icon input-group-icon-right">
+            <span class="input-icon input-icon-right text-success" *ngIf="form_control.code.touched && form_control.code.valid ">
+              <i class="ti-check">
+
+              </i>
+            </span>
+            <input class="form-control form-control-md form-control-rounded form-control-air"  type="text" placeholder="Code" formControlName="code" maxlength="13">
+          </div>
+          <div *ngIf="form_control.code.touched && form_control.code.invalid" class="invalid-feedback d-block">code invalid</div>
+
+        </div>
+        </div>
+        <div class="col-sm-6 col-lg-4">
+
+          <div class="form-group">
+            Nom:
+            <div class="input-group-icon input-group-icon-right">
+            <span class="input-icon input-icon-right text-success" *ngIf="form_control.nom.touched && form_control.nom.valid ">
+              <i class="ti-check">
+
+              </i>
+            </span>
+              <input class="form-control form-control-md form-control-rounded form-control-air" type="text" placeholder="Nom" formControlName="nom">
+
+            </div>
+            <div *ngIf="form_control.nom.touched && form_control.nom.invalid" class="invalid-feedback d-block">nom invalid</div>
+
+          </div>
+        </div>
+          <div class="col-sm-6 col-lg-4">
+
+            <div class="form-group">
+              Marque:
+              <div class="input-group-icon input-group-icon-right">
+
+              <span class="input-icon input-icon-right text-success" *ngIf="form_control.marque.touched && form_control.marque.valid ">
+              <i class="ti-check">
+
+              </i>
+            </span>
+              <input class="form-control form-control-md form-control-rounded form-control-air" type="text" placeholder="Marque" formControlName="marque">
+            </div>
+              <div *ngIf="form_control.marque.touched && form_control.marque.invalid" class="invalid-feedback d-block">marque invalid</div>
+
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6 col-lg-4">
+
+          <div class="form-group">
+            Prix:
+            <div class="input-group-icon input-group-icon-right">
+
+             <span class="input-icon input-icon-right text-success" *ngIf="form_control.prix.touched && form_control.prix.valid ">
+              <i class="ti-check">
+
+              </i>
+            </span>
+            <input class="form-control form-control-md form-control-rounded form-control-air" type="number" min="0" placeholder="Prix" formControlName="prix">
+          </div>
+            <div *ngIf="form_control.prix.touched && form_control.prix.invalid" class="invalid-feedback d-block">prix invalid</div>
+
+          </div>
+        </div>
+
+          <div class="col-sm-6 col-lg-4">
+
+            <div class="form-group">
+              Categorie:
+              <div class="input-group-icon input-group-icon-right">
+
+             <span class="input-icon input-icon-right text-success" *ngIf="form_control.categorie.touched && form_control.categorie.valid ">
+              <i class="ti-check">
+
+              </i>
+            </span>
+              <select class="form-control form-control-md form-control-rounded form-control-air" formControlName="categorie" >
+                <option *ngFor="let categorie of list_categories"  [ngValue]="categorie"[selected]=" update && categorie.id==produit.categorie.id">{{categorie.nom}}</option>
+
+              </select>
+              </div>
+              <div *ngIf="form_control.categorie.touched && form_control.categorie.invalid" class="invalid-feedback d-block">categorie invalid</div>
+
+            </div>
+
+          </div>
+          <div class="col-sm-6 col-lg-4">
+            Image:
+            <button type="button" class=" btn btn-primary2 btn-round2">
+              <i class="fas fa-cloud-upload-alt" aria-hidden="true"></i>
+              <input type="file" formControlName="img" (change)="fileEvent($event)">
+            </button>
+            <div *ngIf="form_control.img.touched && form_control.img.invalid" class="invalid-feedback d-block">image invalid</div>
+
+          </div>
+
+          </div>
+        <div class="text-center mb-4">
+          <button class="btn btn-lg btn-pink btn-rounded btn-air" type="submit" style="width:200px;" id="btn">Ajouter</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+  </div>
+</div>

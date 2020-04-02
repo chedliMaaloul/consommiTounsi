@@ -1,0 +1,104 @@
+<div class="page-content fade-in-up">
+  <div class="page-heading">
+    <h1 class="page-title">Liste Produit</h1>
+    </div>
+  <div class="row">
+    <div class="col-lg-4 col-md-4 mb-4">
+    <div class="input-group-icon input-group-icon-left mr-3">
+      <span class="input-icon input-icon-right font-16"><i class="ti-search"></i></span>
+      <input class="form-control form-control-rounded form-control-solid" id="key-search" placeholder="Search ..." type="text"[(ngModel)]="searchText"></div>
+  </div>
+    <!--<input type="text" class="form-control" name="searchString" placeholder="chercher " [(ngModel)]="searchText">-->
+  <br><br>
+  </div>
+  <div class="row">
+
+
+    <!--<div class="col-lg-4 col-md-4 mb-4" *ngFor=" let pr of list_produits | filter_produit:searchText | paginate: { itemsPerPage: 6, currentPage: p,totalItems: nbr_items}">-->
+
+
+  <!--&lt;!&ndash; Card Regular &ndash;&gt;-->
+  <!--<div class="card card-cascade">-->
+
+    <!--&lt;!&ndash; Card image &ndash;&gt;-->
+    <!--<div class="view view-cascade overlay">-->
+      <!--&lt;!&ndash;<img [src]=" pr.img" />&ndash;&gt;-->
+      <!--<img class="card-img-top" src="data:image/jpeg;base64,{{pr.img}}">-->
+      <!--&lt;!&ndash;<img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/men.jpg" alt="Card image cap">&ndash;&gt;-->
+      <!--<a>-->
+        <!--<div class="mask rgba-white-slight waves-effect waves-light"></div>-->
+      <!--</a>-->
+    <!--</div>-->
+
+    <!--&lt;!&ndash; Card content &ndash;&gt;-->
+    <!--<div class="card-body card-body-cascade text-center">-->
+
+      <!--&lt;!&ndash; Title &ndash;&gt;-->
+      <!--<h4 class="card-title"><strong>{{pr.nom}}</strong></h4>-->
+      <!--&lt;!&ndash; Subtitle &ndash;&gt;-->
+      <!--<h6 class="font-weight-bold indigo-text py-2">{{pr.marque}}</h6>-->
+      <!--<h6 class="font-weight-bold indigo-text py-2">{{pr.prix}}</h6>-->
+      <!--&lt;!&ndash; Text &ndash;&gt;-->
+      <!--&lt;!&ndash;<p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus, ex,&ndash;&gt;-->
+        <!--&lt;!&ndash;recusandae. Facere modi sunt, quod quibusdam.&ndash;&gt;-->
+      <!--&lt;!&ndash;</p>&ndash;&gt;-->
+
+      <!--&lt;!&ndash; Facebook &ndash;&gt;-->
+      <!--<a type="button" class="btn-floating btn-small btn-fb waves-effect waves-light"><i class="fab fa-facebook-f"></i></a>-->
+      <!--&lt;!&ndash; Twitter &ndash;&gt;-->
+      <!--<a type="button" class="btn-floating btn-small btn-tw waves-effect waves-light"><i class="fab fa-twitter"></i></a>-->
+      <!--&lt;!&ndash; Google + &ndash;&gt;-->
+      <!--<a type="button" class="btn-floating btn-small btn-dribbble waves-effect waves-light"><i class="fab fa-dribbble"></i></a>-->
+
+    <!--</div>-->
+
+  <!--</div>-->
+  <!--&lt;!&ndash; Card Regular &ndash;&gt;-->
+
+<!--</div>-->
+    <div class="col-md-4" *ngFor=" let pr of list_produits | filter_produit:searchText | paginate: { itemsPerPage: 6, currentPage: p,totalItems: nbr_items}">
+      <div class="card mb-4">
+        <div class="rel">
+          <img class="card-img-top" src="data:image/jpeg;base64,{{pr.img}}" alt="image" *ngIf="pr.img"/>
+          <img class="card-img-top" src="../../../assets/img/no_image.png" alt="image"  *ngIf="!pr.img" />
+          <div class="fab fab-bottom card-overlay-fab">
+            <button class="btn btn-primary btn-icon-only btn-circle btn-air" data-toggle="button"><i class="ti-angle-down fab-icon"></i><i class="la la-close fab-icon-active"></i></button>
+            <ul class="fab-menu">
+              <li>
+                <a class="btn btn-info btn-icon-only btn-circle btn-air" href="javascript:;" (click)="updateProduit(pr.code)"><i class="la la-pencil"></i></a>
+              </li>
+              <li>
+                <a class="btn btn-danger btn-icon-only btn-circle btn-air" href="javascript:;" (click)="deleteProduit(pr)"><i class="la la-trash"></i></a>
+              </li>
+
+            </ul>
+          </div>
+          <div class="card-img-overlay">
+            <span class="badge badge-primary" *ngIf="pr.categorie">{{pr.categorie.nom}}</span>
+            <span class="badge badge-primary" *ngIf="!pr.categorie"></span>
+          </div>
+        </div>
+        <div class="card-body">
+          <h4 class="card-title mb-2">
+            <a class="text-primary">Nom: {{pr.nom}}</a>
+          </h4>
+          <br>
+          <h4 class="card-title mb-2">
+            <a class="text-primary">Marque: {{pr.marque}}</a>
+          </h4>
+          <br>
+          <h4 class="card-title mb-2">
+            <a class="text-primary">Prix: {{pr.prix}}</a>
+          </h4>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div align="center">
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+
+  </div>
+
+</div>
