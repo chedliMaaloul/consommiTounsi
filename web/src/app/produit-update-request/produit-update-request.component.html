@@ -1,0 +1,128 @@
+<div class="page-content fade-in-up" *ngIf="data; else nodata">
+  <div class="page-heading">
+    <h1 class="page-title"> Produit Request</h1>
+  </div>
+
+    <div class="row mb-5">
+      <div class="col-md-4" *ngIf="produit">
+        <div class="card mb-4">
+          <div class="rel">
+            <img class="card-img-top" src="data:image/jpeg;base64,{{produit.img}}" alt="image" *ngIf="produit.img; else img2" />
+            <ng-template #img2>
+              <img class="card-img-top" src="../../assets/img/no_image.png" alt="image"  />
+
+            </ng-template>
+            <div class="card-img-overlay">
+              <span class="badge badge-warning" *ngIf="!produit.categorie ;else notnull"></span>
+              <ng-template #notnull>
+                <span class="badge badge-warning">{{produit.categorie.nom}}</span>
+
+              </ng-template>
+            </div>
+          </div>
+          <div class="card-body">
+
+            <h4 class="card-title mb-2">
+              <a class="text-primary" style="font-size: larger">Nom: {{produit.nom}}</a>
+            </h4>
+            <br>
+            <h4 class="card-title mb-2">
+              <a class="text-primary" style="font-size: larger">Marque: {{produit.marque}}</a>
+            </h4>
+            <br>
+            <h4 class="card-title mb-2">
+              <a class="text-primary" style="font-size: larger">Prix: {{produit.prix}}</a>
+            </h4>
+          </div>
+        </div>
+      </div>
+
+
+        <img src="../../assets/img/arrow.png" style="height: 200px;width: 30%;">
+      <div class="col-md-4">
+        <div class="card mb-4">
+          <div class="rel">
+            <img class="card-img-top" src="data:image/jpeg;base64,{{data.img}}" alt="image" *ngIf="data.img; else img" />
+            <ng-template #img>
+              <img class="card-img-top" src="../../assets/img/no_image.png" alt="image"  />
+
+            </ng-template>
+            <div class="card-img-overlay">
+              <span class="badge badge-warning" *ngIf="!data.categorie ;else notnull"></span>
+              <ng-template #notnull>
+                <span class="badge badge-warning">{{data.categorie.nom}}</span>
+
+              </ng-template>
+            </div>
+          </div>
+          <div class="card-body">
+
+            <h4 class="card-title mb-2">
+              <a class="text-primary" style="font-size: larger">Nom: {{data.nom}}</a>
+            </h4>
+            <br>
+            <h4 class="card-title mb-2">
+              <a class="text-primary" style="font-size: larger">Marque: {{data.marque}}</a>
+            </h4>
+            <br>
+            <h4 class="card-title mb-2">
+              <a class="text-primary" style="font-size: larger">Prix: {{data.prix}}</a>
+            </h4>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-12" align="center">
+        <button class="btn btn-info  btn-rounded" (click)="accepter_request()">Valider</button>
+        <button class="btn btn-danger  btn-rounded" (click)="refuser_request()">Refuser</button>
+      </div>
+
+    </div>
+
+</div>
+<ng-template #nodata>
+  <div class="page-content fade-in-up">
+    <div class="page-heading">
+      <h1 class="page-title">Liste des Produits Requests</h1>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="ibox ibox-fullheight">
+          <div class="ibox-head">
+            <div class="ibox-title"></div>
+          </div>
+          <div class="ibox-body">
+            <div class="p-3" >
+              <div class="media-list media-list-divider scroller" data-height="350px" data-color="#71808f">
+                <a class="media p-3" *ngFor="let req of list_request  " [routerLink]="['/produit_request/show', req.id]">
+                  <div class="media-img" >
+                    <!--<img class="img-circle" src="./assets/img/users/u8.jpg" alt="image" />-->
+                  </div>
+                  <div class="media-body">
+                    <div class="media-heading">{{req.code}}<small class="text-muted float-right">{{req.date}}</small></div>
+                    <div class="font-13 text-muted">Demande de modification de: <span class="d-inline-flex align-items-center text-primary">{{req.champ}}</span> </div>
+                    <button class="btn btn-danger btn-icon-only btn-circle btn-air float-right"><i class="fa fa-times" aria-hidden="true"></i></button>
+                    <button class="btn btn-info btn-icon-only btn-circle btn-air float-right"><i class="fa fa-check" aria-hidden="true"></i></button>
+
+                    <!--<div class="font-13 mt-1">
+                      <span class="d-inline-flex align-items-center text-primary">{{req.champ}}</span>
+                    </div>-->
+                  </div>
+                </a>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</ng-template>
+
+
+
+
+
+

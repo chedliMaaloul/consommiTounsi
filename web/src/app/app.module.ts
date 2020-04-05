@@ -21,6 +21,9 @@ import { CategorieService } from './service/categorie/categorie.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {AngularMultiSelectModule} from 'angular2-multiselect-dropdown';
 import { LoginComponent } from './login/login.component';
+import {ProduitUpdateRequestService} from './service/produit-update-request/produit-update-request.service';
+import {AppHeader} from './layouts/app-header/app-header.component';
+import { ProduitUpdateRequestComponent } from './produit-update-request/produit-update-request.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +34,9 @@ import { LoginComponent } from './login/login.component';
     ConsulterProduitComponent,
     Produit_filterPipe,
     AjouterCategoriesComponent,
-    LoginComponent
+    LoginComponent,
+    ProduitUpdateRequestComponent
+
 
   ],
   imports: [
@@ -48,7 +53,7 @@ import { LoginComponent } from './login/login.component';
     AngularMultiSelectModule
 
   ],
-  providers: [ScriptLoaderService, ProduitService, CategorieService],
+  providers: [ScriptLoaderService, ProduitService, CategorieService, ProduitUpdateRequestService],
   bootstrap: [AppComponent],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA

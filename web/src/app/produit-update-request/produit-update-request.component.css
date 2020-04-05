@@ -1,0 +1,9 @@
+.text-muted{color:black !important;    font-weight: 600;}
+.text-primary {
+  font-size: 17px;
+}
+.btn-icon-only {
+  height: 24px;
+  width: 25px;
+}
+
