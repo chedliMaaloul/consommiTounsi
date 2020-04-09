@@ -8,9 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-/**
- * Created by chedliM on 27/02/2020.
- */
+
 @RestController
 @RequestMapping("api/categories")
 

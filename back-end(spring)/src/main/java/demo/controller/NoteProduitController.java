@@ -9,9 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
 
-/**
- * Created by chedliM on 19/03/2020.
- */
+
 @RestController
 @RequestMapping("api/note_produit")
 public class NoteProduitController {

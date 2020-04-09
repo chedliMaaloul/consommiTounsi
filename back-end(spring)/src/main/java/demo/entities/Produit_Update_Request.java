@@ -6,9 +6,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
 
-/**
- * Created by chedliM on 03/04/2020.
- */
+
 @Entity
 public class Produit_Update_Request implements Serializable {
 

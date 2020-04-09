@@ -3,9 +3,7 @@ package demo.entities;
 import javax.persistence.*;
 import java.io.Serializable;
 
-/**
- * Created by chedliM on 19/03/2020.
- */
+
 @Entity
 public class NoteProduit implements Serializable {
 

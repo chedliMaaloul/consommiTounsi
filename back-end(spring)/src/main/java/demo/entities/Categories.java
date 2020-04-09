@@ -6,9 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.io.Serializable;
 
-/**
- * Created by chedliM on 27/02/2020.
- */
+
 @Entity
 public class Categories implements Serializable{
 

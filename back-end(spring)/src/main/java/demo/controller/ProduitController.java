@@ -21,9 +21,6 @@ import java.util.zip.DataFormatException;
 import java.util.zip.Deflater;
 import java.util.zip.Inflater;
 
-/**
- * Created by chedliM on 21/02/2020.
- */
 @RestController
 @RequestMapping("api/produit")
 public class ProduitController {

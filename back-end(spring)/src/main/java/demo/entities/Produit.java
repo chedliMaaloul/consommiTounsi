@@ -5,9 +5,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
 
-/**
- * Created by chedliM on 21/02/2020.
- */
+
 @Entity
 public class Produit implements Serializable {
     @Id

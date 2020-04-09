@@ -4,9 +4,7 @@ import demo.entities.Produit;
 
 import java.util.List;
 
-/**
- * Created by chedliM on 21/02/2020.
- */
+
 public interface ProduitServiceInterface {
     public void addproduit(Produit pr);
     public List<Produit> listproduit();

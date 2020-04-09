@@ -7,9 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-/**
- * Created by chedliM on 27/02/2020.
- */
+
 @Service
 public class CategoriesServiceImplement implements CategoriesServiceInterface {
     @Autowired

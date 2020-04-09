@@ -6,9 +6,6 @@ import demo.entities.Recette;
 
 import java.util.List;
 
-/**
- * Created by chedliM on 09/03/2020.
- */
 public interface RecetteServiceInterface {
 
     public void addrecette(Recette recette);

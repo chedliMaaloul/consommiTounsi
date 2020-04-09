@@ -9,9 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-/**
- * Created by chedliM on 09/03/2020.
- */
+
 @Repository
 public interface RecetteRepository extends JpaRepository<Recette,Integer> {
 

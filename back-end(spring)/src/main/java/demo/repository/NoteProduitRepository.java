@@ -8,9 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import java.math.BigDecimal;
 
-/**
- * Created by chedliM on 19/03/2020.
- */
+
 @Repository
 public interface NoteProduitRepository extends JpaRepository<NoteProduit,Long> {
 

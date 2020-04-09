@@ -7,9 +7,7 @@ import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
-/**
- * Created by chedliM on 03/04/2020.
- */
+
 public interface Produit_Update_Request_Repository extends JpaRepository<Produit_Update_Request,Long> {
 
     @Query(value = "select * from Produit_Update_Request r where r.etat  ='en attente'",nativeQuery = true)

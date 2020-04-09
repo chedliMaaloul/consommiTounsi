@@ -8,9 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-/**
- * Created by chedliM on 09/03/2020.
- */
+
 @Service
 public class RecetteServiceImplement implements RecetteServiceInterface {
     @Autowired

@@ -9,9 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.persistence.criteria.CriteriaBuilder;
 import java.util.List;
 
-/**
- * Created by chedliM on 09/03/2020.
- */
+
 @RestController
 @RequestMapping("api/recette")
 

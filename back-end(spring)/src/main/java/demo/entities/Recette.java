@@ -7,9 +7,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
 
-/**
- * Created by chedliM on 09/03/2020.
- */
+
 
 @Entity
 public class Recette implements Serializable {
