@@ -1,0 +1,21 @@
+<ion-app>
+  <ion-content [fullscreen]="true" class="ion-padding" scroll-y="false">
+  
+    <ion-menu side="start" type="overlay" contentId="main">
+      <ion-header>
+        <ion-toolbar color="danger">
+          <ion-title>Menu</ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content>
+        <ion-list>
+          <ion-item menuClose (click)="scan()"><ion-icon slot="start" name="barcode" color="danger"></ion-icon><p>Scan</p></ion-item>
+          <ion-item menuClose (click)="goTo('/list-produits')"><ion-icon slot="start" name="pizza" color="danger"></ion-icon><p>Produits</p></ion-item>
+          <ion-item menuClose><ion-icon slot="start" name="restaurant" color="danger"></ion-icon><p>Recettes</p></ion-item>
+          <ion-item menuClose><ion-icon slot="start" name="ribbon" color="danger"></ion-icon><p>Top</p></ion-item>
+        </ion-list>
+      </ion-content>
+    </ion-menu>
+    <ion-router-outlet id="main"></ion-router-outlet>
+  </ion-content>
+</ion-app>

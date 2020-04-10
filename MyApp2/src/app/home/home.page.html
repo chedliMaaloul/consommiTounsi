@@ -1,0 +1,43 @@
+<ion-header [translucent]="true" style="z-index: 11;">
+  <ion-toolbar color="danger">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button (click)="goToHome()">
+        <ion-icon slot="icon-only" name="home"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title style="text-align: center;">
+      <strong>
+      Made in Tunisia
+      </strong>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="center">
+    <ion-slides pager="true" [options]="slideOpts">
+  
+      <ion-slide>
+          <img src="assets/imgs/scan.jpg"/>
+          <h2>Scanner QR code ou code à barre</h2>
+      </ion-slide>
+  
+      <ion-slide>
+        <img src="assets/imgs/remplir.jpg"/>
+        <h2>Remplir une fiche de produit </h2>
+      </ion-slide>
+  
+      <ion-slide>
+        <img src="assets/imgs/check.jpg"/>
+        <h2>Choisir ou Ajouter une recette</h2>
+      </ion-slide>
+  
+    </ion-slides>
+  
+    
+    </div>
+  
+</ion-content>
