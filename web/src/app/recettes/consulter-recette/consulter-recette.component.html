@@ -1,0 +1,59 @@
+<div class="page-content fade-in-up">
+  <div class="page-heading">
+    <h1 class="page-title">Liste Recette</h1>
+  </div>
+  <div class="row">
+    <div class="col-lg-4 col-md-4 mb-4">
+      <div class="input-group-icon input-group-icon-left mr-3">
+        <span class="input-icon input-icon-right font-16"><i class="ti-search"></i></span>
+        <input class="form-control form-control-rounded form-control-solid" id="key-search" placeholder="Search ..." type="text"[(ngModel)]="searchText"></div>
+    </div>
+    <br><br>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+    <kendo-card class="k-widget k-card k-card-vertical" *ngFor=" let recette of list_recette | filter_produit:searchText | paginate: { itemsPerPage: 6, currentPage: p,totalItems: nbr_items}">
+      <img kendoCardMedia src="data:image/jpeg;base64,{{recette.img}}" />
+      <kendo-card-body class="k-card-body">
+        <h4>{{recette.nom}}</h4>
+        <div *ngIf="expanded">
+          <hr kendoCardSeparator />
+          <div class="recipe-wrap">
+           <div class="row">
+             <div  *ngFor="let pr of recette.produits">
+               <button class="btn btn-info btn-sm btn-rounded">{{pr.nom}}</button>
+
+             </div>
+
+
+           </div>
+          </div>
+        </div>
+      </kendo-card-body>
+      <hr kendoCardSeparator *ngIf="horizontalStretched" />
+      <kendo-card-actions class="k-card-actions k-card-actions-end k-card-actions-horizontal" orientation="actionsOrientation" [layout]="actionsLayout">
+        <button class="k-button k-flat" (click)="updateRecette(recette.id)">
+          <span class="k-icon k-i-edit"></span>
+          Modifier
+        </button>
+        <button class="k-button k-flat" (click)="toggleLike()">
+          <span class="k-icon k-i-delete"></span>
+          Supprimer
+        </button>
+        <hr kendoCardSeparator orientation="'vertical'" *ngIf="horizontalStretched" />
+        <button class="k-button k-primary k-flat" (click)="toggleRecipe()">
+          <span class="k-icon k-i-more-vertical"></span>
+          {{ btnText }}
+        </button>
+      </kendo-card-actions>
+    </kendo-card>
+    </div>
+
+
+  </div>
+  <div class=" " align="center">
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+
+  </div>
+
+</div>

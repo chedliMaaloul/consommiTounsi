@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ProduitService} from '../../service/produit/produit.service';
 import {CategorieService} from '../../service/categorie/categorie.service';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import * as $ from 'jquery';
 import {Produits} from '../../entities/Produitd';
 declare var toastr: any;
@@ -29,7 +29,7 @@ export class AjouterProduitComponent implements OnInit {
   image_change:boolean=false;
   image:any;
 
-  constructor(private form: FormBuilder, private produit_service: ProduitService, private categorie_service: CategorieService, private router: ActivatedRoute) {
+  constructor(private form: FormBuilder, private produit_service: ProduitService, private categorie_service: CategorieService, private router: ActivatedRoute,private  route: Router) {
     this.code_produit = this.router.snapshot.paramMap.get('id');
     console.log(this.code_produit);
 
@@ -118,7 +118,9 @@ export class AjouterProduitComponent implements OnInit {
          this.produit_service.upload(uploadImageData).subscribe(image => {
              this.produit_service.update_produit_image_change(this.f.getRawValue(), image).subscribe(() => {
                  toastr['success']('Produit mise a jour avec succés ');
-
+                 setTimeout (() => {
+                   this.route.navigate(['/produit/show']);
+                 }, 2000);
 
                }
                ,
@@ -137,6 +139,10 @@ export class AjouterProduitComponent implements OnInit {
          this.produit_service.update_produit(this.f.getRawValue(), this.image).subscribe(
            data => {
              toastr['success']('Produit mise a jour avec succés ');
+             setTimeout (() => {
+               this.route.navigate(['/produit/show']);
+             }, 2000);
+
 
            }
            ,

@@ -1,0 +1,110 @@
+<div class="page-content fade-in-up">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="ibox">
+        <div class="ibox-head">
+          <div class="ibox-title" id="title">Ajouter Recette</div>
+        </div>
+        <div class="ibox-body">
+          <form class="form-info" [formGroup]="f" (submit)="onSubmit()">
+            <div class="row">
+
+              <div class="col-sm-6 col-lg-4">
+
+                <div class="form-group">
+                  Nom:
+                  <div class="input-group-icon input-group-icon-right">
+            <span class="input-icon input-icon-right text-success" *ngIf="form_control.nom.touched && form_control.nom.valid ">
+              <i class="ti-check">
+
+              </i>
+            </span>
+                    <input class="form-control form-control-md form-control-rounded form-control-air" type="text" placeholder="Nom" formControlName="nom">
+
+                  </div>
+                  <div *ngIf="form_control.nom.touched && form_control.nom.invalid" class="invalid-feedback d-block">nom invalid</div>
+
+                </div>
+              </div>
+              <div class="col-sm-6 col-lg-4">
+
+                <div class="form-group">
+                  Ingrèdients:
+                  <div class="input-group-icon input-group-icon-right">
+            <span class="input-icon input-icon-right text-success" *ngIf="form_control.produits.touched && form_control.produits.valid ">
+              <i class="ti-check">
+
+              </i>
+            </span>
+                    <angular2-multiselect [data]="list_produits" [(ngModel)]="selectedItems" [ngModelOptions]="{standalone: true}"
+                                          [settings]="settings"
+                                          (onSelect)="onItemSelect($event)"
+                                          (onDeSelect)="OnItemDeSelect($event)"
+                                          (onSelectAll)="onSelectAll($event)"
+                                          (onDeSelectAll)="onDeSelectAll($event)"
+                                          (onClose)="onClose($event)">
+                      <c-badge>
+                        <ng-template let-item="item">
+                          <label style="margin: 0px;">{{item.nom}}</label>
+                          <img src="data:image/jpeg;base64,{{item.img}}"style="width: 16px; margin-left: 8%;" />
+                        </ng-template>
+                      </c-badge>
+                      <c-item>
+                        <ng-template let-item="item">
+                          <label style="color: #333;min-width: 150px;">{{item.nom}}</label>
+                          <img src="data:image/jpeg;base64,{{item.img}}" style="width: 20%;height: 51px; border: 1px solid #efefef;" />
+                        </ng-template>
+                      </c-item>
+                    </angular2-multiselect>
+
+                  </div>
+                  <div *ngIf="!produits_selected" class="invalid-feedback d-block">produit invalid</div>
+
+                </div>
+              </div>
+              <div class="col-sm-6 col-lg-4">
+                Image:
+                <button type="button" class=" btn btn-primary2 btn-round2">
+                  <i class="fas fa-cloud-upload-alt" aria-hidden="true"></i>
+                  <input type="file" formControlName="img" (change)="fileEvent($event)">
+                </button>
+                <div *ngIf="form_control.img.touched && form_control.img.invalid" class="invalid-feedback d-block">image invalid</div>
+
+              </div>
+            </div>
+            <div class="row">
+
+              <div class="col-sm-6 col-lg-8">
+
+                <div class="form-group">
+                  Description:
+                  <div class="input-group-icon input-group-icon-right">
+            <span class="input-icon input-icon-right text-success" *ngIf="form_control.description.touched && form_control.description.valid ">
+              <i class="ti-check">
+
+              </i>
+            </span>
+                    <textarea class="form-control form-control-md form-control-rounded form-control-air" placeholder="Description" rows="3" formControlName="description"></textarea>
+
+
+                  </div>
+                  <div *ngIf="form_control.description.touched && form_control.description.invalid" class="invalid-feedback d-block">description invalid</div>
+
+                </div>
+              </div>
+
+              <div class="text-center mb-4">
+                <br>
+
+                <button class="btn btn-lg btn-pink btn-rounded btn-air" type="submit" style="width:200px;" id="btn">Ajouter</button>
+              </div>
+
+
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -20,7 +20,16 @@
       <a routerLink="/categorie/add" routerLinkActive="active"><i class="sidebar-item-icon fa fa-thumb-tack"></i><span class="nav-label">Categorie</span></a>
 
     </li>
-    
+    <li routerLinkActive="active">
+      <a href="href=&quot;javascript:;&quot;"><i class="sidebar-item-icon fa fa-cutlery"></i><span class="nav-label">Recette</span><i class="fa fa-angle-left arrow"></i></a>
+      <ul class="nav-2-level collapse" routerLinkActive="in">
+        <li><a routerLink="/recette/add" routerLinkActive="active">Ajouter</a>
+        </li>
+        <li><a routerLink="/recette/show" routerLinkActive="active">Consulter</a>
+        </li>
+
+      </ul>
+    </li>
 
 
   </ul>

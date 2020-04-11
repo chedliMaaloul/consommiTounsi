@@ -73,8 +73,8 @@
       </div>
 
       <div class="col-lg-12" align="center">
-        <button class="btn btn-info  btn-rounded" (click)="accepter_request()">Valider</button>
-        <button class="btn btn-danger  btn-rounded" (click)="refuser_request()">Refuser</button>
+        <button class="btn btn-info  btn-rounded" (click)="accepter_request(data)">Valider</button>
+        <button class="btn btn-danger  btn-rounded" (click)="refuser_request(data)">Refuser</button>
       </div>
 
     </div>
@@ -95,15 +95,15 @@
           <div class="ibox-body">
             <div class="p-3" >
               <div class="media-list media-list-divider scroller" data-height="350px" data-color="#71808f">
-                <a class="media p-3" *ngFor="let req of list_request  " [routerLink]="['/produit_request/show', req.id]">
+                <a class="media p-3" *ngFor="let req of list_request  " >
                   <div class="media-img" >
                     <!--<img class="img-circle" src="./assets/img/users/u8.jpg" alt="image" />-->
                   </div>
                   <div class="media-body">
-                    <div class="media-heading">{{req.code}}<small class="text-muted float-right">{{req.date}}</small></div>
-                    <div class="font-13 text-muted">Demande de modification de: <span class="d-inline-flex align-items-center text-primary">{{req.champ}}</span> </div>
-                    <button class="btn btn-danger btn-icon-only btn-circle btn-air float-right"><i class="fa fa-times" aria-hidden="true"></i></button>
-                    <button class="btn btn-info btn-icon-only btn-circle btn-air float-right"><i class="fa fa-check" aria-hidden="true"></i></button>
+                    <div class="media-heading" [routerLink]="['/produit_request/show', req.id]">{{req.code}}<small class="text-muted float-right">{{req.date}}</small></div>
+                    <div class="font-13 text-muted" >Demande de modification de: <span class="d-inline-flex align-items-center text-primary">{{req.champ}}</span> </div>
+                    <button class="btn btn-danger btn-icon-only btn-circle btn-air float-right" (click)="refuser_request(req)"><i class="fa fa-times" aria-hidden="true"></i></button>
+                    <button class="btn btn-info btn-icon-only btn-circle btn-air float-right" (click)="accepter_request(req)"><i class="fa fa-check" aria-hidden="true"></i></button>
 
                     <!--<div class="font-13 mt-1">
                       <span class="d-inline-flex align-items-center text-primary">{{req.champ}}</span>

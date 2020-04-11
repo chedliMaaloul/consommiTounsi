@@ -19,6 +19,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { AjouterCategoriesComponent } from './categories/ajouter-categories/ajouter-categories.component';
 import { CategorieService } from './service/categorie/categorie.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AjouterRecetteComponent } from './recettes/ajouter-recette/ajouter-recette.component';
+import { ConsulterRecetteComponent } from './recettes/consulter-recette/consulter-recette.component';
 import {AngularMultiSelectModule} from 'angular2-multiselect-dropdown';
 import { LoginComponent } from './login/login.component';
 import {ProduitUpdateRequestService} from './service/produit-update-request/produit-update-request.service';
@@ -34,6 +36,8 @@ import { ProduitUpdateRequestComponent } from './produit-update-request/produit-
     ConsulterProduitComponent,
     Produit_filterPipe,
     AjouterCategoriesComponent,
+    AjouterRecetteComponent,
+    ConsulterRecetteComponent,
     LoginComponent,
     ProduitUpdateRequestComponent
 

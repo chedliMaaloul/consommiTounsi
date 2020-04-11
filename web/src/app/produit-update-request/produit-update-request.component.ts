@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute, Router} from '@angular/router';
+import {ActivatedRoute, NavigationEnd, Router, RouterEvent} from '@angular/router';
 import {ProduitUpdateRequestService} from '../service/produit-update-request/produit-update-request.service';
 import {ProduitService} from '../service/produit/produit.service';
 import {Produits} from '../entities/Produitd';
 import {ProduitUpdateRequest} from '../entities/ProduitUpdateRequest';
+import {filter} from 'rxjs/internal/operators';
 declare var toastr: any;
 
 @Component({
@@ -25,6 +26,10 @@ export class ProduitUpdateRequestComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.route.events.pipe(
+      filter((event: RouterEvent) => event instanceof NavigationEnd)
+    ).subscribe(() => {
+      this.get_all_reques();  });
     this.router.params.subscribe(routeParams => {
       this.id = routeParams.id;
       if (this.id) {
@@ -37,6 +42,7 @@ export class ProduitUpdateRequestComponent implements OnInit {
       console.log(this.id);
       this.get_request();
     }*/
+
     this.get_all_reques();
     toastr.options = {
       'closeButton': true,
@@ -82,13 +88,14 @@ export class ProduitUpdateRequestComponent implements OnInit {
     );
   }
 
-  refuser_request() {
+  refuser_request(data) {
     let prod: ProduitUpdateRequest;
-    prod = Object.assign({}, this.data) ;
+    prod = Object.assign({}, data) ;
     prod.etat = 'refuser';
     this.produit_update_request_service.update_request(prod).subscribe(
       data => {
         this.route.navigate(['/produit_request/show']);
+        this.get_all_reques();
 
       },
       error2 => {
@@ -99,9 +106,9 @@ export class ProduitUpdateRequestComponent implements OnInit {
 
 
   }
-  accepter_request() {
+  accepter_request(data) {
     let prod: ProduitUpdateRequest;
-    prod = Object.assign({}, this.data) ;
+    prod = Object.assign({}, data) ;
     prod.etat = 'accepter';
     this.produit_update_request_service.update_request(prod).subscribe(
       data => {

@@ -9,6 +9,8 @@ import {AjouterProduitComponent} from './produit/ajouter-produit/ajouter-produit
 import {ConsulterProduitComponent} from './produit/consulter-produit/consulter-produit.component';
 import {DashboardComponent} from './dashboard/dashboard.component';
 import {AjouterCategoriesComponent} from './categories/ajouter-categories/ajouter-categories.component';
+import {AjouterRecetteComponent} from './recettes/ajouter-recette/ajouter-recette.component';
+import {ConsulterRecetteComponent} from './recettes/consulter-recette/consulter-recette.component';
 import {LoginComponent} from './login/login.component';
 import {BrowserModule} from '@angular/platform-browser';
 import {CommonModule} from '@angular/common';
@@ -42,7 +44,18 @@ const routes: Routes = [
         component: AjouterCategoriesComponent
       },
 
-    
+      {
+        path: 'recette/add',
+        component: AjouterRecetteComponent
+      },
+      { path: 'recette/add/:id',
+        component: AjouterRecetteComponent
+      },
+
+      {
+        path: 'recette/show',
+        component: ConsulterRecetteComponent
+      },
       {
         path: 'produit_request/show',
         component: ProduitUpdateRequestComponent
@@ -63,7 +76,7 @@ const routes: Routes = [
   declarations: [
 
   ],
-  imports: [ RouterModule.forRoot(routes), FormsModule, CustomFormsModule, ReactiveFormsModule  ],
+  imports: [ RouterModule.forRoot(routes, {onSameUrlNavigation: 'reload'}), FormsModule, CustomFormsModule, ReactiveFormsModule  ],
   exports: [
     RouterModule,
   ]
